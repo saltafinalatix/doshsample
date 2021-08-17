@@ -4,10 +4,14 @@ import Button from '@material-ui/core/Button';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { makeStyles } from '@material-ui/styles';
 import Divider from '@material-ui/core/Divider';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     button: {
         marginLeft: '800px'
+    },
+    link: {
+        textDecoration: 'none'
     },
     divider: {
         width: '1380px'
@@ -45,14 +49,18 @@ const SubHeader = () => {
                     <Typography variant="h5">Customer Management</Typography>
                 </Grid>
                 <Grid item mr={2}>
-                    <Button
-                        style={{ textTransform: 'capitalize' }}
-                        variant="contained"
-                        color="primary"
-                        disableElevation
-                    >
-                        Create Customer
-                    </Button>
+                    <Link className={classes.link} to="/createcustomer">
+                        <Button
+                            style={{
+                                textTransform: 'capitalize'
+                            }}
+                            variant="contained"
+                            color="primary"
+                            disableElevation
+                        >
+                            Create Customer
+                        </Button>
+                    </Link>
                 </Grid>
             </Grid>
             <Divider variant="fullWidth" />

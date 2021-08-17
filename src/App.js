@@ -1,32 +1,21 @@
 import React from 'react';
-import Header from './Header';
-import SubHeader from './SubHeader';
-import { Grid } from '@material-ui/core';
-import Filter from './Filter';
-import Content from './Content';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CreateCustomer from './main/CreateCustomer';
+import Dashboard from './main/Dashboard';
 
 const App = () => {
     return (
-        <Grid container direction="column">
-            <Grid item>
-                <Header />
-            </Grid>
-            <Grid container>
-                <Grid item>
-                    <SubHeader />
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item>
-                    <Filter />
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item>
-                    <Content />
-                </Grid>
-            </Grid>
-        </Grid>
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Dashboard />
+                </Route>
+                <Route path="/createcustomer">
+                    <CreateCustomer />
+                </Route>
+            </Switch>
+        </Router>
     );
 };
 
