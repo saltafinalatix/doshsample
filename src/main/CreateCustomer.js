@@ -12,7 +12,8 @@ const useStyles = makeStyles(() => ({
         width: '1380px'
     },
     maincontainer: {
-        backgroundColor: '#edf2fb'
+        backgroundColor: '#edf2fb',
+        paddingLeft: 20
     },
     btn: {
         color: '#6c757d',
