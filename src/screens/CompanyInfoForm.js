@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Grid, TextField } from '@material-ui/core';
+import { Typography, Grid, TextField, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 const initialValues = {
@@ -12,7 +12,7 @@ const initialValues = {
     gstNumber: ''
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     companyinfo: {
         padding: 20,
         marginRight: 23,
@@ -27,10 +27,14 @@ const useStyles = makeStyles(() => ({
     },
     companyInfocontainer: {
         marginTop: 20,
-        display: 'flex'
+        display: 'flex',
+        justifyContent: 'space-around'
     },
     companyinfoInput: {
-        marginLeft: 100
+        width: '120%'
+    },
+    divider: {
+        padding: 20
     }
 }));
 
@@ -38,20 +42,23 @@ const CompanyInfoForm = () => {
     const classes = useStyles();
     const [values, setValues] = useState(initialValues);
     return (
-        <Grid container className={classes.companyInfocontainer}>
-            <Grid item>
-                <Typography className={classes.companyInfotitle}>
-                    Business Name
-                </Typography>
+        <>
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography className={classes.companyInfotitle}>
+                        Business Name
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.businessName}
+                        required
+                    />
+                </Grid>
             </Grid>
-            <Grid item>
-                <TextField
-                    className={classes.companyinfoInput}
-                    variant="outlined"
-                    value={values.businessName}
-                    required
-                />
-            </Grid>
+            <Divider className={classes.divider} />
             <Grid container className={classes.companyInfocontainer}>
                 <Grid item>
                     <Typography>Trading Name</Typography>
@@ -64,73 +71,78 @@ const CompanyInfoForm = () => {
                         required
                     />
                 </Grid>
-                <Grid container className={classes.companyInfocontainer}>
-                    <Grid item>
-                        <Typography>Merchant Plan</Typography>
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            className={classes.companyinfoInput}
-                            variant="outlined"
-                            value={values.merchantPlan}
-                            required
-                        />
-                    </Grid>
+            </Grid>
+            <Divider className={classes.divider} />
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography>Merchant Plan</Typography>
                 </Grid>
-                <Grid container className={classes.companyInfocontainer}>
-                    <Grid item>
-                        <Typography>Business Type</Typography>
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            className={classes.companyinfoInput}
-                            variant="outlined"
-                            value={values.businessType}
-                            required
-                        />
-                    </Grid>
-                </Grid>
-                <Grid container className={classes.companyInfocontainer}>
-                    <Grid item>
-                        <Typography>Business Registration Number</Typography>
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            className={classes.companyinfoInput}
-                            variant="outlined"
-                            value={values.businessRegistrationNumber}
-                            required
-                        />
-                    </Grid>
-                </Grid>
-                <Grid container className={classes.companyInfocontainer}>
-                    <Grid item>
-                        <Typography>Apply GST?</Typography>
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            className={classes.companyinfoInput}
-                            variant="outlined"
-                            value={values.businessRegistrationNumber}
-                            required
-                        />
-                    </Grid>
-                </Grid>
-                <Grid container className={classes.companyInfocontainer}>
-                    <Grid item>
-                        <Typography>GST Number</Typography>
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            className={classes.companyinfoInput}
-                            variant="outlined"
-                            value={values.gstNumber}
-                            required
-                        />
-                    </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.merchantPlan}
+                        required
+                    />
                 </Grid>
             </Grid>
-        </Grid>
+            <Divider className={classes.divider} />
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography>Business Type</Typography>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.businessType}
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Divider className={classes.divider} />
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography>Business Registration Number</Typography>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.businessRegistrationNumber}
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Divider className={classes.divider} />
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography>Apply GST?</Typography>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.businessRegistrationNumber}
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Divider className={classes.divider} />
+            <Grid container className={classes.companyInfocontainer}>
+                <Grid item>
+                    <Typography>GST Number</Typography>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        className={classes.companyinfoInput}
+                        variant="outlined"
+                        value={values.gstNumber}
+                        required
+                    />
+                </Grid>
+            </Grid>
+        </>
     );
 };
 
